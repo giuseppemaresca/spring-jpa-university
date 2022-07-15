@@ -16,8 +16,14 @@ public class ControllerUniversità{
 	
 	@Autowired 
 	private UniversityRepository repo;
+	
+	@GetMapping("/index")
+	public String index (Model model)
+	{
+		return "index";
+	}
 
-	@GetMapping
+	@GetMapping("/department")
 	public String home(Model model) {
 		List<University> DepartmentsList =(List<University>)repo.findAll();
 		model.addAttribute("DepartmentsList" ,DepartmentsList);
