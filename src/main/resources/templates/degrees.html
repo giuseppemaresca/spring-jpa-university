@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <th:block th:replace="fragments :: risorse-head"></th:block>
+    <title>University Degrees </title>
+    
+  </head>
+  <body >
+    <div th:replace="fragments :: navbar('index')"></div>
+    <div class="container text-center w-75 mt-3">
+      <h1>Dipartimenti</h1>
+      <hr/>
+      <div th:if="${#lists.isEmpty(degreesList)}">
+        <h1>Spiacenti, non è disponibile una lista di dipartimenti</h1>>
+      </div>
+      <div th:unless="${#lists.isEmpty(degreesList)}">
+        <table class="table mb-5">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Dipartimento</th>
+              <th>Livello</th>
+              <th>Indirizzo</th>
+              <th>Email</th>
+              <th>Sito web</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="ds : ${degreesList}">
+              <td th:text="${ds.name}"></td>
+              <td th:text="${ds.getDepartment().getName()}"></td>
+              <td th:text="${ds.level}"></td>
+              <td th:text="${ds.address}"></td>
+              <td th:text="${ds.email}"></td>
+              <td th:text="${ds.website}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
