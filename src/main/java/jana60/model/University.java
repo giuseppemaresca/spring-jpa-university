@@ -4,7 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
+
 
 @Entity
 @Table(name = "departments")
@@ -25,11 +29,21 @@ public class University {
 	private String website;
 	
 	private String headOfDepartment;
-	
+	@OneToMany
+	@JoinColumn (name = "department_id")
+	private List <Degrees> degree;
 	//Getters and Setters
 
 	public Integer getId() {
 		return id;
+	}
+
+	public List<Degrees> getDegree() {
+		return degree;
+	}
+
+	public void setDegree(List<Degrees> degree) {
+		this.degree = degree;
 	}
 
 	public void setId(Integer id) {

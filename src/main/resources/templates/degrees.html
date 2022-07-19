@@ -8,10 +8,10 @@
   <body >
     <div th:replace="fragments :: navbar('index')"></div>
     <div class="container text-center w-75 mt-3">
-      <h1>Dipartimenti</h1>
+      <h1>Corsi di Laurea </h1>
       <hr/>
       <div th:if="${#lists.isEmpty(degreesList)}">
-        <h1>Spiacenti, non è disponibile una lista di dipartimenti</h1>>
+        <h1>Spiacenti, non è disponibile una lista di corsi</h1>>
       </div>
       <div th:unless="${#lists.isEmpty(degreesList)}">
         <table class="table mb-5">

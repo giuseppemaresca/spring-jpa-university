@@ -27,7 +27,7 @@
           </thead>
           <tbody>
             <tr th:each="d : ${DepartmentsList}">
-              <td th:text="${d.name}"></td>
+            <td><a class="text-decoration-none fw-bold text-dark" th:href="@{|/department/${d.id}|}" th:text="${d.name}"></a></td>
               <td th:text="${d.address}"></td>
               <td th:text="${d.phone}"></td>
               <td th:text="${d.email}"></td>
