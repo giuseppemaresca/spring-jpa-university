@@ -12,36 +12,31 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="teachers")
-public class Teacher 
-{
+@Table(name = "teachers")
+public class Teacher {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String name;
-	
+
 	private String surname;
-	
+
 	private String phone;
-	
+
 	private String email;
-	
+
 	private String officeAddress;
-	
+
 	private String officeNumber;
-	
+
 	@ManyToMany
-	@JoinTable
-	(
-		name = "course_teacher", 
-		joinColumns = {@JoinColumn(name = "teacher_id")},
-		inverseJoinColumns = {@JoinColumn(name = "course_id")}
-	)
+	@JoinTable(name = "course_teacher", joinColumns = { @JoinColumn(name = "teacher_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "course_id") })
 	private List<Course> course;
 
-	//GETTER & SETTER
-	
+	// GETTER & SETTER
+
 	public List<Course> getCourse() {
 		return course;
 	}
@@ -50,11 +45,9 @@ public class Teacher
 		this.course = course;
 	}
 
-	
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -107,7 +100,7 @@ public class Teacher
 	public void setOfficeNumber(String officeNumber) {
 		this.officeNumber = officeNumber;
 	}
-	
+
 	public String getFullName() {
 		return this.name + " " + this.surname;
 	}

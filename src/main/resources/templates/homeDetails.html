@@ -2,8 +2,8 @@
 <html lang="it">
 
 <head>
-    <th:block th:replace="fragments :: risorse-head"></th:block>
-    <title th:text="${department.name}"></title>
+	<th:block th:replace="fragments :: risorse-head"></th:block>
+	<title th:text="${department.name}"></title>
 </head>
 
 <body>
@@ -14,24 +14,24 @@
 	</div>
 	<div class="container">
 		<table class="table my-3">
-	          <thead>
-	            <tr>
-	              <th>Indirizzo</th>
-	              <th>Telefono</th>
-	              <th>Indirizzo mail</th>
-	              <th>Sito web</th>
-	              <th>Capodipartimento</th>
-	            </tr>
-	          </thead>
-	          <tbody>
-	            <tr class="align-middle bg-success text-light">
-	              <td th:text="${department.address}"></td>
-	              <td th:text="${department.phone}"></td>
-	              <td th:text="${department.email}"></td>
-	              <td th:text="${department.website}"></td>
-	              <td th:text="${department.headOfDepartment}"></td>
-	            </tr>
-	          </tbody>
-	     </table>
+			<thead>
+				<tr>
+					<th>Indirizzo</th>
+					<th>Telefono</th>
+					<th>Indirizzo mail</th>
+					<th>Sito web</th>
+					<th>Capodipartimento</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="align-middle bg-success  text-light">
+					<td th:text="${department.address}"></td>
+					<td th:text="${department.phone}"></td>
+					<td th:text="${department.email}"></td>
+					<td th:text="${department.website}"></td>
+					<td th:text="${department.headOfDepartment}"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>

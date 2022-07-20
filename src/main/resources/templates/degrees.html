@@ -1,42 +1,51 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <th:block th:replace="fragments :: risorse-head"></th:block>
-    <title>University Degrees </title>
-    
-  </head>
-  <body >
-    <div th:replace="fragments :: navbar('index')"></div>
-    <div class="container text-center w-75 mt-3">
-      <h1>Corsi di Laurea </h1>
-      <hr/>
-      <div th:if="${#lists.isEmpty(degreesList)}">
-        <h1>Spiacenti, non è disponibile una lista di corsi</h1>>
-      </div>
-      <div th:unless="${#lists.isEmpty(degreesList)}">
-        <table class="table mb-5">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Dipartimento</th>
-              <th>Livello</th>
-              <th>Indirizzo</th>
-              <th>Email</th>
-              <th>Sito web</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr th:each="ds : ${degreesList}">
-              <td th:text="${ds.name}"></td>
-              <td th:text="${ds.getDepartment().getName()}"></td>
-              <td th:text="${ds.level}"></td>
-              <td th:text="${ds.address}"></td>
-              <td th:text="${ds.email}"></td>
-              <td th:text="${ds.website}"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </body>
+
+<head>
+	<th:block th:replace="fragments :: risorse-head"></th:block>
+	<title>University Degrees </title>
+
+</head>
+
+<body>
+	<div th:replace="fragments :: navbar('index')"></div>
+	<div class="container text-center w-75 mt-3">
+		<h1>Corsi di Laurea </h1>
+		<hr />
+		<div th:if="${#lists.isEmpty(degreesList)}">
+			<h1>Spiacenti, non è disponibile una lista di corsi</h1>>
+		</div>
+		<div th:unless="${#lists.isEmpty(degreesList)}">
+			<table class="table mb-5">
+				<thead class ="bg-dark text-decoration-none  fw-bold text-light">
+					<tr>
+						<th>Nome</th>
+						<th>Dipartimento</th>
+						<th>Livello</th>
+						<th>Indirizzo</th>
+						<th>Email</th>
+						<th>Sito web</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ds : ${degreesList}">
+						<td class="bg-info"> <a class="text-decoration-none  fw-bold text-dark"
+								th:text="${ds.name}"></a></td>
+						<td class="bg-warning"><a class="text-decoration-none  fw-bold text-dark"
+								th:text="${ds.getDepartment().getName()}"></a></td>
+						<td class="bg-danger"> <a class="text-decoration-none  fw-bold text-dark"
+								th:text="${ds.level}"></a></td>
+						<td class="bg-danger"> <a class="text-decoration-none  fw-bold text-dark"
+								th:text="${ds.address}"></a></td>
+						<td class="bg-danger"> <a class="text-decoration-none  fw-bold text-dark"
+								th:text="${ds.email}"></a></td>
+						<td class="bg-danger"> <a class="text-decoration-none  fw-bold text-dark"
+								th:text="${ds.website}"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
 </html>

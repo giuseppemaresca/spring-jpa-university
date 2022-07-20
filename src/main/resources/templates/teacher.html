@@ -2,37 +2,39 @@
 <html lang="it">
 
 <head>
-    <th:block th:replace="fragments :: risorse-head"></th:block>
-    <title>Insegnanti</title>
+	<th:block th:replace="fragments :: risorse-head"></th:block>
+	<title>Insegnanti</title>
 </head>
 
 <body>
-    <th:block th:replace="fragments :: navbar(teacher)"></th:block>
-    
-      <div th:if="${#lists.isEmpty(TeachersList)}">
-	  	<h1>Lista non disponibile, riprovare più tardi</h1>
-	  </div>
-	  <div th:unless="${#lists.isEmpty(TeachersList)}">
-	        <table class="table my-3">
-	          <thead>
-	            <tr class="text-center">
-	              <th>Insegnante</th>
-	              <th>Telefono</th>
-	              <th>E-Mail</th>
-	              <th>Indirizzo Ufficio - Num.</th>
-	            </tr>
-	          </thead>
-	          <tbody>
-	            <tr class="align-middle" th:each="tl : ${TeachersList}">
-	              <td class="text-center bg-success">
-	              		<a class="text-decoration-none fw-bold text-light" th:href="@{|/teacher/${tl.id}|}" th:text="${tl.getFullName()}"></a>
-	              </td>
-	              <td class="bg-secondary text-light text-center" th:text="${tl.phone}"></td>
-	              <td th:text="${tl.email}"></td>
-	              <td class="text-center" th:text="${tl.officeAddress} + ' - Stanza ' + ${tl.officeNumber}"></td>
-	            </tr>
-	          </tbody>
-	        </table>
-	   </div>
+	<th:block th:replace="fragments :: navbar(teacher)"></th:block>
+
+	<div th:if="${#lists.isEmpty(TeachersList)}">
+		<h1>Lista non disponibile, riprovare più tardi</h1>
+	</div>
+	<div th:unless="${#lists.isEmpty(TeachersList)}">
+		<table class="table my-3">
+			<thead>
+				<tr class="text-center">
+					<th>Insegnante</th>
+					<th>Telefono</th>
+					<th>E-Mail</th>
+					<th>Indirizzo Ufficio - Num.</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="align-middle" th:each="tl : ${TeachersList}">
+					<td class="text-center bg-success">
+						<a class="text-decoration-none fw-bold text-light" th:href="@{|/teacher/${tl.id}|}"
+							th:text="${tl.getFullName()}"></a>
+					</td>
+					<td class="bg-secondary text-light text-center" th:text="${tl.phone}"></td>
+					<td th:text="${tl.email}"></td>
+					<td class="text-center" th:text="${tl.officeAddress} + ' - Stanza ' + ${tl.officeNumber}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
+
 </html>
